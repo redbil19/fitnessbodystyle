@@ -8,6 +8,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ErrorBoundary } from "./ErrorBoundary";
 
+// Lazy load blog page
+const Blog = lazy(() => import("./pages/Blog").then(module => ({ default: module.default })));
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -22,6 +25,9 @@ const App = () => {
         <Routes>
           {/* EXISTING ROUTE */}
           <Route path="/" element={<Index />} />
+          
+          {/* BLOG ROUTE */}
+          <Route path="/blog" element={<Suspense fallback={<div className="p-8 text-center">Loading...</div>}><Blog /></Suspense>} />
 
           {/* DO NOT TOUCH */}
           <Route path="*" element={<NotFound />} />
