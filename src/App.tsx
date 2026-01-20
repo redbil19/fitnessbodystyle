@@ -15,7 +15,9 @@ import CreatePost from "./pages/Admin/CreatePost";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  console.log("App component rendering");
+  return (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -39,6 +41,7 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
   </ErrorBoundary>
-);
+  );
+};
 
 export default App;
