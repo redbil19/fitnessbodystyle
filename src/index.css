@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/* =====================
+   BASE THEME VARIABLES
+===================== */
 @layer base {
   :root {
     --background: 0 0% 8%;
@@ -37,70 +39,58 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 48 100% 50%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 0 0% 18%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 48 100% 50%;
-
-    /* Custom tokens */
+    /* Custom gym colors */
     --gym-yellow: 48 100% 50%;
     --gym-yellow-light: 48 100% 60%;
     --gym-yellow-dark: 48 100% 40%;
     --gym-charcoal: 0 0% 12%;
     --gym-charcoal-light: 0 0% 18%;
     --gym-dark: 0 0% 8%;
-    
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 50%, hsl(48 100% 50% / 0.1) 100%);
-    --gradient-yellow: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(48 100% 40%) 100%);
-    --gradient-dark-overlay: linear-gradient(to bottom, hsl(0 0% 0% / 0.7), hsl(0 0% 0% / 0.3));
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(0 0% 8%) 0%,
+      hsl(0 0% 12%) 50%,
+      hsl(48 100% 50% / 0.1) 100%
+    );
+    --gradient-yellow: linear-gradient(
+      135deg,
+      hsl(48 100% 50%) 0%,
+      hsl(48 100% 40%) 100%
+    );
+    --gradient-dark-overlay: linear-gradient(
+      to bottom,
+      hsl(0 0% 0% / 0.7),
+      hsl(0 0% 0% / 0.3)
+    );
   }
 
-  .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 48 100% 50%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 48 100% 50%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 48 100% 50%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Oswald", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
 }
 
+/* =====================
+   COMPONENTS
+===================== */
 @layer components {
   .text-gradient-yellow {
     @apply bg-clip-text text-transparent;
@@ -150,6 +140,9 @@
   }
 }
 
+/* =====================
+   UTILITIES & ANIMATIONS
+===================== */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
