@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Get from environment variables or use hardcoded values as fallback
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://qtyvowueqecmugxkyyqv.supabase.co";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_AqbR9NqliW5nO2AAzTpHUA_4oaX5KFd";
 
 // Log for debugging
 if (typeof window !== 'undefined') {
