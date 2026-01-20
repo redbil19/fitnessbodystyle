@@ -10,7 +10,7 @@ export default function Blog() {
     const fetchPosts = async () => {
       try {
         if (!supabase) {
-          setError("Database connection not configured. Please check environment variables.")
+          setError("⚠️ Database not configured. Admin: Check Vercel Environment Variables for VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY")
           setLoading(false)
           return
         }
@@ -38,7 +38,7 @@ export default function Blog() {
   }
 
   if (error) {
-    return <div className="p-8 text-center text-destructive">{error}</div>
+    return <div className="p-8 text-center text-destructive text-sm">{error}</div>
   }
 
   if (posts.length === 0) {
