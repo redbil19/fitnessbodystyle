@@ -1,27 +1,23 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Get from environment variables or use hardcoded values as fallback
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://qtyvowueqecmugxkyyqv.supabase.co";
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_AqbR9NqliW5nO2AAzTpHUA_4oaX5KFd";
-
-// Log for debugging
-if (typeof window !== 'undefined') {
-  console.log('=== SUPABASE CONFIG ===');
-  console.log('URL present:', !!supabaseUrl);
-  console.log('Key present:', !!supabaseAnonKey);
-  console.log('URL value:', supabaseUrl);
-  console.log('======================');
-}
+// Hardcoded values
+const supabaseUrl = "https://qtyvowueqecmugxkyyqv.supabase.co";
+const supabaseAnonKey = "sb_publishable_AqbR9NqliW5nO2AAzTpHUA_4oaX5KFd";
 
 let supabase: any = null;
+let initError: Error | null = null;
 
-// Only create client if both URL and key are present
-if (supabaseUrl && supabaseAnonKey) {
-  try {
+// Try to initialize Supabase
+try {
+  if (supabaseUrl && supabaseAnonKey) {
     supabase = createClient(supabaseUrl, supabaseAnonKey);
-  } catch (error) {
-    console.error('Failed to create Supabase client:', error);
+    console.log('✅ Supabase initialized successfully');
+  } else {
+    throw new Error('Missing Supabase URL or key');
   }
+} catch (error: any) {
+  initError = error;
+  console.error('❌ Failed to initialize Supabase:', error);
 }
 
-export { supabase };
+export { supabase, initError };

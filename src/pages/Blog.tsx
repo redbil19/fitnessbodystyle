@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { supabase } from "@/lib/supabase"
+import { supabase, initError } from "@/lib/supabase"
 
 export default function Blog() {
   const [posts, setPosts] = useState<any[]>([])
@@ -9,8 +9,15 @@ export default function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        // Check for initialization error
+        if (initError) {
+          setError(`Supabase error: ${initError.message}`)
+          setLoading(false)
+          return
+        }
+
         if (!supabase) {
-          setError("⚠️ Database not configured. Admin: Check Vercel Environment Variables for VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY")
+          setError("Supabase client not available")
           setLoading(false)
           return
         }
