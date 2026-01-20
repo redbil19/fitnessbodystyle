@@ -17,7 +17,6 @@ const CreatePost = lazy(() => import("./pages/Admin/CreatePost").then(module => 
 const queryClient = new QueryClient();
 
 const App = () => {
-  console.log("App component rendering");
   return (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
