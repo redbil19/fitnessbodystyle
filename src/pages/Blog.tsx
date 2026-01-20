@@ -1,16 +1,49 @@
 import { useEffect, useState } from "react"
-import { supabase } from "../lib/supabase"
+import { supabase } from "@/lib/supabase"
 
 export default function Blog() {
   const [posts, setPosts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    supabase
-      .from("posts")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .then(({ data }) => setPosts(data || []))
+    const fetchPosts = async () => {
+      try {
+        if (!supabase) {
+          setError("Database connection not configured. Please check environment variables.")
+          setLoading(false)
+          return
+        }
+
+        const { data, error: dbError } = await supabase
+          .from("posts")
+          .select("*")
+          .order("created_at", { ascending: false })
+
+        if (dbError) throw dbError
+        setPosts(data || [])
+      } catch (err: any) {
+        console.error("Error fetching posts:", err)
+        setError(err.message || "Failed to fetch posts")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPosts()
   }, [])
+
+  if (loading) {
+    return <div className="p-8 text-center text-foreground">Loading posts...</div>
+  }
+
+  if (error) {
+    return <div className="p-8 text-center text-destructive">{error}</div>
+  }
+
+  if (posts.length === 0) {
+    return <div className="p-8 text-center text-muted-foreground">No blog posts yet</div>
+  }
 
   return (
     <div className="p-8 grid md:grid-cols-3 gap-6">
