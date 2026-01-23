@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Instagram } from "lucide-react"
 
 export default function AboutPage() {
   const { language } = useLanguage()
@@ -142,7 +142,11 @@ export default function AboutPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-primary mb-2">Coach Name</h3>
-                  <p className="text-muted-foreground">Specialized in strength training</p>
+                  <p className="text-muted-foreground mb-4">Specialized in strength training</p>
+                  <a href="https://www.instagram.com/healthybygilda/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                    <span>@healthybygilda</span>
+                  </a>
                 </div>
               </div>
               <div className="bg-secondary rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all">
@@ -151,7 +155,11 @@ export default function AboutPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-primary mb-2">Coach Name</h3>
-                  <p className="text-muted-foreground">Specialized in cardio and conditioning</p>
+                  <p className="text-muted-foreground mb-4">Specialized in cardio and conditioning</p>
+                  <a href="https://www.instagram.com/indriiit_/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                    <span>@indriiit_</span>
+                  </a>
                 </div>
               </div>
             </div>
