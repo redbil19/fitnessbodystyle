@@ -11,7 +11,7 @@ interface Translations {
 
 export const translations: Translations = {
   // Navigation
-  home: { sq: 'Ballina', en: 'Home' },
+  home: { sq: 'Kryesore', en: 'Home' },
   about: { sq: 'Rreth Nesh', en: 'About' },
   services: { sq: 'Shërbimet', en: 'Services' },
   gallery: { sq: 'Galeria', en: 'Gallery' },
