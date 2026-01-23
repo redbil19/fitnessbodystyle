@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X, Globe } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +18,29 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { key: "home", href: "#home" },
-    { key: "about", href: "#about" },
-    { key: "services", href: "#services" },
-    { key: "gallery", href: "#gallery" },
-    { key: "contact", href: "#contact" },
+    { key: "home", href: "/", label: "home" },
+    { key: "about", href: "/about", label: "about" },
+    { key: "services", href: "/#services", label: "services" },
+    { key: "gallery", href: "/#gallery", label: "gallery" },
   ];
 
   const toggleLanguage = () => {
     setLanguage(language === "sq" ? "en" : "sq");
+  };
+
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    
+    // If it's an anchor link and we're on home page, scroll to section
+    if (href.startsWith("/#") && location.pathname === "/") {
+      setTimeout(() => {
+        const elementId = href.slice(2);
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 0);
+    }
   };
 
   return (
@@ -39,25 +54,26 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex flex-col items-center leading-none">
+          <Link to="/" className="flex flex-col items-center leading-none">
             <span className="font-display text-xl md:text-2xl text-primary">
               FITNESS
             </span>
             <span className="font-display text-sm md:text-base text-foreground tracking-widest">
               BODYSTYLE
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.key}
-                href={link.href}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className="text-foreground/80 hover:text-primary transition-colors font-medium uppercase tracking-wide text-sm"
               >
-                {t(link.key)}
-              </a>
+                {t(link.label)}
+              </Link>
             ))}
 
             {/* BLOG PAGE */}
@@ -67,6 +83,22 @@ const Navbar: React.FC = () => {
             >
               BLOG
             </Link>
+
+            {/* CONTACT LINK */}
+            <a
+              href="#contact"
+              onClick={() => {
+                if (location.pathname === "/") {
+                  const element = document.getElementById("contact");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
+              className="text-foreground/80 hover:text-primary transition-colors font-medium uppercase tracking-wide text-sm"
+            >
+              {t("contact")}
+            </a>
 
             {/* Language Toggle */}
             <button
@@ -109,14 +141,14 @@ const Navbar: React.FC = () => {
           <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border animate-slide-down">
             <div className="container mx-auto px-4 py-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.key}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  to={link.href}
+                  onClick={() => handleNavClick(link.href)}
                   className="block py-3 text-foreground/80 hover:text-primary transition-colors font-medium uppercase tracking-wide border-b border-border/50 last:border-0"
                 >
-                  {t(link.key)}
-                </a>
+                  {t(link.label)}
+                </Link>
               ))}
 
               {/* BLOG PAGE */}
@@ -127,6 +159,23 @@ const Navbar: React.FC = () => {
               >
                 BLOG
               </Link>
+
+              {/* CONTACT LINK */}
+              <a
+                href="#contact"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  if (location.pathname === "/") {
+                    const element = document.getElementById("contact");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }
+                }}
+                className="block py-3 text-foreground/80 hover:text-primary transition-colors font-medium uppercase tracking-wide border-b border-border/50"
+              >
+                {t("contact")}
+              </a>
             </div>
           </div>
         )}

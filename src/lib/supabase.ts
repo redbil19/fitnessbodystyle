@@ -1,23 +1,21 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Hardcoded values
-const supabaseUrl = "https://qtyvowueqecmugxkyyqv.supabase.co";
-const supabaseAnonKey = "sb_publishable_AqbR9NqliW5nO2AAzTpHUA_4oaX5KFd";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 let supabase: any = null;
 let initError: Error | null = null;
 
-// Try to initialize Supabase
-try {
-  if (supabaseUrl && supabaseAnonKey) {
+if (supabaseUrl && supabaseAnonKey) {
+  try {
     supabase = createClient(supabaseUrl, supabaseAnonKey);
-    console.log('✅ Supabase initialized successfully');
-  } else {
-    throw new Error('Missing Supabase URL or key');
+    console.log('✅ Supabase initialized');
+  } catch (error: any) {
+    initError = error;
+    console.error('❌ Supabase error:', error);
   }
-} catch (error: any) {
-  initError = error;
-  console.error('❌ Failed to initialize Supabase:', error);
+} else {
+  console.warn('⚠️ Supabase credentials not set');
 }
 
 export { supabase, initError };
