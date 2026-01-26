@@ -6,17 +6,19 @@ import gymInterior2 from '@/assets/gym-interior-2.jpg';
 import gymInterior3 from '@/assets/gym-interior-3.jpg';
 import gymCardio from '@/assets/gym-cardio.jpg';
 import gymEquipment from '@/assets/gym-equipment.jpg';
+import gymStory from '@/assets/gym-story.jpg';
 
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    { src: gymInterior1, alt: 'Gym Interior - Weight Area' },
-    { src: gymCardio, alt: 'Cardio Area' },
-    { src: gymInterior2, alt: 'Gym Facilities' },
-    { src: gymEquipment, alt: 'Modern Equipment' },
-    { src: gymInterior3, alt: 'Training Area' },
+    { src: gymInterior1, alt: 'Gym Interior - Weight Area', colSpan: 'md:col-span-2', rowSpan: 'md:row-span-2', height: 'h-64 md:h-96' },
+    { src: gymCardio, alt: 'Cardio Area', colSpan: '', rowSpan: '', height: 'h-48 md:h-64' },
+    { src: gymStory, alt: 'Gym Story', colSpan: '', rowSpan: 'md:row-span-2', height: 'h-48 md:h-96' },
+    { src: gymInterior2, alt: 'Gym Facilities', colSpan: '', rowSpan: '', height: 'h-48 md:h-64' },
+    { src: gymEquipment, alt: 'Modern Equipment', colSpan: '', rowSpan: '', height: 'h-48 md:h-64' },
+    { src: gymInterior3, alt: 'Training Area', colSpan: '', rowSpan: '', height: 'h-48 md:h-64' },
   ];
 
   return (
@@ -34,22 +36,18 @@ const Gallery: React.FC = () => {
           </h2>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {/* Gallery Grid - Masonry Layout */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-max">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-lg cursor-pointer group ${
-                index === 0 ? 'md:col-span-2 md:row-span-2' : ''
-              }`}
+              className={`relative overflow-hidden rounded-lg cursor-pointer group ${image.colSpan} ${image.rowSpan}`}
               onClick={() => setSelectedImage(image.src)}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                  index === 0 ? 'h-64 md:h-80' : 'h-48 md:h-56'
-                }`}
+                className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${image.height}`}
               />
               <div className="absolute inset-0 bg-background/0 group-hover:bg-background/40 transition-colors duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
