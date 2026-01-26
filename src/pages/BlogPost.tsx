@@ -9,6 +9,7 @@ export default function BlogPost() {
   const [error, setError] = useState("")
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchPost()
   }, [slug])
 

@@ -10,6 +10,7 @@ export default function Blog() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchPosts()
   }, [])
 
