@@ -6,7 +6,6 @@ import gymInterior2 from '@/assets/gym-interior-2.jpg';
 import gymInterior3 from '@/assets/gym-interior-3.jpg';
 import gymCardio from '@/assets/gym-cardio.jpg';
 import gymEquipment from '@/assets/gym-equipment.jpg';
-import gymMotivation from '@/assets/gym-motivation.jpg';
 
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
@@ -17,7 +16,6 @@ const Gallery: React.FC = () => {
     { src: gymCardio, alt: 'Cardio Area' },
     { src: gymInterior2, alt: 'Gym Facilities' },
     { src: gymEquipment, alt: 'Modern Equipment' },
-    { src: gymMotivation, alt: 'Motivation Wall' },
     { src: gymInterior3, alt: 'Training Area' },
   ];
 

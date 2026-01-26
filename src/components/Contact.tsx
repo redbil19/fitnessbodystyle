@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { MapPin, Clock, Instagram, Facebook, ExternalLink } from 'lucide-react';
-import gymExterior from '@/assets/gym-exterior.jpg';
+import gymInterior from '@/assets/gym-interior-1.jpg';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
@@ -43,8 +43,8 @@ const Contact: React.FC = () => {
           <div className="relative">
             <div className="rounded-lg overflow-hidden">
               <img
-                src={gymExterior}
-                alt="Fitness Bodystyle Exterior"
+                src={gymInterior}
+                alt="Fitness Bodystyle Interior"
                 className="w-full h-64 md:h-80 object-cover"
               />
             </div>
