@@ -6,12 +6,14 @@ import gymInterior2 from '@/assets/gym-interior-2.jpg';
 import gymInterior3 from '@/assets/gym-interior-3.jpg';
 import gymCardio from '@/assets/gym-cardio.jpg';
 import gymEquipment from '@/assets/gym-equipment.jpg';
+import gymStory from '@/assets/gym-story.jpg';
 
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
+    { src: gymStory, alt: 'Gym Story' },
     { src: gymInterior1, alt: 'Gym Interior - Weight Area' },
     { src: gymCardio, alt: 'Cardio Area' },
     { src: gymInterior2, alt: 'Gym Facilities' },
@@ -48,7 +50,7 @@ const Gallery: React.FC = () => {
                 src={image.src}
                 alt={image.alt}
                 className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                  index === 0 ? 'h-64 md:h-full' : 'h-48 md:h-64'
+                  index === 0 ? 'h-80 md:h-96' : 'h-56 md:h-64'
                 }`}
               />
               <div className="absolute inset-0 bg-background/0 group-hover:bg-background/40 transition-colors duration-300 flex items-center justify-center">

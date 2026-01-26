@@ -79,6 +79,19 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Story Image Section */}
+        <section className="py-0 px-4 md:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={gymStory} 
+                alt="Fitness Story"
+                className="w-full h-96 md:h-[500px] object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Our Story */}
         <section className="py-20 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
@@ -88,13 +101,6 @@ export default function AboutPage() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {t.storyText}
                 </p>
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={gymStory} 
-                  alt="Fitness Story"
-                  className="w-full h-96 object-cover"
-                />
               </div>
             </div>
           </div>
@@ -147,20 +153,15 @@ export default function AboutPage() {
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-secondary rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all">
-                <div className="h-96 bg-card flex items-center justify-center">
-                  <img 
-                    src={coachGilda} 
-                    alt="Coach Gilda" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">Gilda</h3>
-                  <p className="text-muted-foreground mb-4">Specialized in strength training</p>
-                  <a href="https://www.instagram.com/healthybygilda/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-                    <Instagram className="w-5 h-5" />
-                    <span>@healthybygilda</span>
-                  </a>
+                <div className="h-96 bg-card flex items-center justify-center p-6">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-primary mb-2">Gilda</h3>
+                    <p className="text-muted-foreground mb-4">Specialized in strength training</p>
+                    <a href="https://www.instagram.com/healthybygilda/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                      <Instagram className="w-5 h-5" />
+                      <span>@healthybygilda</span>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="bg-secondary rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all">
