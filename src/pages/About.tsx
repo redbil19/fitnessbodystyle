@@ -6,6 +6,7 @@ import { useEffect } from "react"
 import coachIndrit from "@/assets/coach-indrit.jpg"
 import coachGilda from "@/assets/coach-gilda.jpg"
 import gymStory from "@/assets/gym-story.jpg"
+import stairs from "@/assets/stairs.jpg"
 
 export default function AboutPage() {
   const { language } = useLanguage()
@@ -79,19 +80,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Story Image Section */}
-        <section className="py-0 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={gymStory} 
-                alt="Fitness Story"
-                className="w-full h-96 md:h-[500px] object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* Our Story */}
         <section className="py-20 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
@@ -101,6 +89,13 @@ export default function AboutPage() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {t.storyText}
                 </p>
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={stairs} 
+                  alt="Fitness Stairs"
+                  className="w-full h-96 object-cover"
+                />
               </div>
             </div>
           </div>
