@@ -19,14 +19,14 @@ export const translations: Translations = {
   
   // Hero
   heroTitle: { sq: 'TRANSFORMO TRUPIN TËND', en: 'TRANSFORM YOUR BODY' },
-  heroSubtitle: { sq: 'Që nga viti 2010, ne kemi ndihmuar mijëra njerëz të arrijnë qëllimet e tyre të fitnesit', en: 'Since 2010, we have helped thousands of people achieve their fitness goals' },
+  heroSubtitle: { sq: 'Që nga viti 2009, ne kemi ndihmuar mijëra njerëz të arrijnë qëllimet e tyre të fitnesit', en: 'Since 2009, we have helped thousands of people achieve their fitness goals' },
   joinNow: { sq: 'BASHKOHU TANI', en: 'JOIN NOW' },
   learnMore: { sq: 'MËSO MË SHUMË', en: 'LEARN MORE' },
   
   // About
   aboutTitle: { sq: 'RRETH NESH', en: 'ABOUT US' },
   aboutSubtitle: { sq: 'Më shumë se 14 vite eksperiencë në industrinë e fitnesit', en: 'More than 14 years of experience in the fitness industry' },
-  aboutDescription: { sq: 'Fitness Bodystyle është një palestër moderne e themeluar në vitin 2010, e pajisur me pajisjet më të mira të fitnesit. Ne ofrojmë një ambient profesional dhe motivues ku çdo anëtar mund të arrij potencialin e tij maksimal.', en: 'Fitness Bodystyle is a modern gym founded in 2010, equipped with the best fitness equipment. We offer a professional and motivating environment where every member can reach their maximum potential.' },
+  aboutDescription: { sq: 'Fitness Bodystyle është një palestër moderne e themeluar në vitin 2009, e pajisur me pajisjet më të mira të fitnesit. Ne ofrojmë një ambient profesional dhe motivues ku çdo anëtar mund të arrij potencialin e tij maksimal.', en: 'Fitness Bodystyle is a modern gym founded in 2009, equipped with the best fitness equipment. We offer a professional and motivating environment where every member can reach their maximum potential.' },
   yearsExperience: { sq: 'Vite Eksperiencë', en: 'Years Experience' },
   happyMembers: { sq: 'Anëtarë të Kënaqur', en: 'Happy Members' },
   equipment: { sq: 'Pajisje Moderne', en: 'Modern Equipment' },

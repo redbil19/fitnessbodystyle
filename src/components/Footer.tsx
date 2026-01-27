@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 
           {/* Copyright */}
           <p className="text-muted-foreground text-sm">
-            © 2010 - {new Date().getFullYear()} Fitness Bodystyle. {t('footerText')}.
+            © 2009 - {new Date().getFullYear()} Fitness Bodystyle. {t('footerText')}.
           </p>
         </div>
       </div>
