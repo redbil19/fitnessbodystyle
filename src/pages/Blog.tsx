@@ -42,7 +42,7 @@ export default function Blog() {
     return (
       <>
         <Navbar />
-        <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-8 flex items-center justify-center pt-32">
+        <div className="min-h-screen bg-slate-100 p-8 flex items-center justify-center pt-40">
           <p className="text-foreground">Loading posts...</p>
         </div>
         <Footer />
@@ -54,7 +54,7 @@ export default function Blog() {
     return (
       <>
         <Navbar />
-        <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-8 flex items-center justify-center pt-32">
+        <div className="min-h-screen bg-slate-100 p-8 flex items-center justify-center pt-40">
           <p className="text-destructive">{error}</p>
         </div>
         <Footer />
@@ -66,7 +66,7 @@ export default function Blog() {
     return (
       <>
         <Navbar />
-        <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-8 flex items-center justify-center pt-32">
+        <div className="min-h-screen bg-slate-100 p-8 flex items-center justify-center pt-40">
           <p className="text-muted-foreground">No blog posts yet</p>
         </div>
         <Footer />
@@ -77,7 +77,7 @@ export default function Blog() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-background to-secondary pt-32 p-8">
+      <div className="min-h-screen bg-slate-100 pt-40 p-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-12">

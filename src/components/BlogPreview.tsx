@@ -34,7 +34,7 @@ export default function BlogPreview() {
   }
 
   return (
-    <section id="blog" className="py-20 bg-background">
+    <section id="blog" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Section Title */}
         <div className="text-center mb-16">
