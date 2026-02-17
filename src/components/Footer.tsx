@@ -40,6 +40,13 @@ const Footer: React.FC = () => {
             © 2009 - {new Date().getFullYear()} Fitness Bodystyle. {t('footerText')}.
           </p>
         </div>
+
+        {/* Powered by Albscaling */}
+        <div className="mt-8 pt-8 border-t border-border text-center">
+          <p className="text-muted-foreground text-sm">
+            Powered by <a href="https://albscaling.al" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Albscaling</a>
+          </p>
+        </div>
       </div>
 
       {/* Bottom accent */}
